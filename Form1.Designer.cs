@@ -32,6 +32,9 @@
             this.numComprimento = new System.Windows.Forms.NumericUpDown();
             this.txtSenha = new System.Windows.Forms.TextBox();
             this.btnGerar = new System.Windows.Forms.Button();
+            this.btnCopiar = new System.Windows.Forms.Button();
+            this.chkNumeros = new System.Windows.Forms.CheckBox();
+            this.chkSimbolos = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.numComprimento)).BeginInit();
             this.SuspendLayout();
             // 
@@ -76,11 +79,44 @@
             this.btnGerar.UseVisualStyleBackColor = true;
             this.btnGerar.Click += new System.EventHandler(this.btnGerar_Click);
             // 
+            // btnCopiar
+            // 
+            this.btnCopiar.Location = new System.Drawing.Point(397, 320);
+            this.btnCopiar.Name = "btnCopiar";
+            this.btnCopiar.Size = new System.Drawing.Size(75, 23);
+            this.btnCopiar.TabIndex = 4;
+            this.btnCopiar.Text = "Copiar";
+            this.btnCopiar.UseVisualStyleBackColor = true;
+            this.btnCopiar.Click += new System.EventHandler(this.btnCopiar_Click);
+            // 
+            // chkNumeros
+            // 
+            this.chkNumeros.AutoSize = true;
+            this.chkNumeros.Location = new System.Drawing.Point(210, 65);
+            this.chkNumeros.Name = "chkNumeros";
+            this.chkNumeros.Size = new System.Drawing.Size(99, 17);
+            this.chkNumeros.TabIndex = 5;
+            this.chkNumeros.Text = "Incluir Números";
+            this.chkNumeros.UseVisualStyleBackColor = true;
+            // 
+            // chkSimbolos
+            // 
+            this.chkSimbolos.AutoSize = true;
+            this.chkSimbolos.Location = new System.Drawing.Point(397, 65);
+            this.chkSimbolos.Name = "chkSimbolos";
+            this.chkSimbolos.Size = new System.Drawing.Size(101, 17);
+            this.chkSimbolos.TabIndex = 6;
+            this.chkSimbolos.Text = "Incluir Símbolos";
+            this.chkSimbolos.UseVisualStyleBackColor = true;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.chkSimbolos);
+            this.Controls.Add(this.chkNumeros);
+            this.Controls.Add(this.btnCopiar);
             this.Controls.Add(this.btnGerar);
             this.Controls.Add(this.txtSenha);
             this.Controls.Add(this.numComprimento);
@@ -99,6 +135,9 @@
         private System.Windows.Forms.NumericUpDown numComprimento;
         private System.Windows.Forms.TextBox txtSenha;
         private System.Windows.Forms.Button btnGerar;
+        private System.Windows.Forms.Button btnCopiar;
+        private System.Windows.Forms.CheckBox chkNumeros;
+        private System.Windows.Forms.CheckBox chkSimbolos;
     }
 }
 

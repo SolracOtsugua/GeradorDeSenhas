@@ -25,7 +25,8 @@ namespace GeradorDeSenhas
         private void btnGerar_Click(object sender, EventArgs e)
         {
             //1. Definir os caracteres possíveis
-            string caracteres = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890!@#$%&*";
+            string caracteresPadrao = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
+            
 
             //2. Pegar o comprimento escolhido no NumericUpDown
             int comprimento = (int)numComprimento.Value;
@@ -35,14 +36,70 @@ namespace GeradorDeSenhas
             StringBuilder senha = new StringBuilder();
 
             //4. Sortear caracteres
+            if (chkSimbolos.Checked)
+            {
+                caracteresPadrao += "!@#$%&*";
+            }
+            if (chkNumeros.Checked)
+            {
+                caracteresPadrao += "1234567890";
+            }
+
             for (int i = 0; i < comprimento; i++)
             {
-                int indice = random.Next(caracteres.Length);
-                senha.Append(caracteres[indice]);
+                int indice = random.Next(caracteresPadrao.Length);
+                senha.Append(caracteresPadrao[indice]);
             }
+            //*************Forma inicial que eu havia pensado************************
+            //if (chkNumeros.Checked && chkSimbolos.Checked)
+            //{
+
+            //    for (int i = 0; i < comprimento; i++)
+            //    {
+            //        int indice = random.Next(caracteresTodos.Length);
+            //        senha.Append(caracteresTodos[indice]);
+            //    }
+            //} 
+            //else if (chkSimbolos.Checked)
+            //{
+            //    for (int i = 0; i < comprimento; i++)
+            //    {
+            //        int indice = random.Next(caracteresComSimbolos.Length);
+            //        senha.Append(caracteresComSimbolos[indice]);
+            //    }
+            //}
+            //else if (chkNumeros.Checked)
+            //{
+            //    for (int i = 0; i < comprimento; i++)
+            //    {
+            //        int indice = random.Next(caracteresComNumeros.Length);
+            //        senha.Append(caracteresComNumeros[indice]);
+            //    }
+            //}
+            //else
+            //{
+            //    for (int i = 0; i < comprimento; i++)
+            //    {
+            //        int indice = random.Next(caracteresPadrao.Length);
+            //        senha.Append(caracteresPadrao[indice]);
+            //    }
+            //}
 
             //5. Exibir no TextBox
             txtSenha.Text = senha.ToString();
+        }
+
+        private void btnCopiar_Click(object sender, EventArgs e)
+        {
+            if (txtSenha.Text != "")
+            {
+                Clipboard.SetText(txtSenha.Text);
+                MessageBox.Show("Senha copiada com sucesso!");
+            }
+            else
+            {
+                MessageBox.Show("É necessário gerar uma senha antes de copiar");
+            }
         }
     }
 }
